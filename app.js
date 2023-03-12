@@ -2,34 +2,35 @@
 
 //~~ EXPRESS. Настройка и создание сервера ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Импорт библиотек и фреймворков
-require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const mysql = require("mysql");
 
-// Выбор номера порта у сервера
 const port = process.env.PORT || 5500;
-const hostname = "127.0.0.1";
-
-// Создаём сервер
 const app = express();
+
+let db_name = "myDB";
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: `${db_name}`,   // Комментировать эту строку время от времени
+  multipleStatements: true, // Несколько команд в bd.query
+});
+
+db.connect((err) => {
+  if (err) throw err;
+  console.log("\tMySQL Подключен!");
+});
 
 // создаем парсер для данных application/x-www-form-urlencoded
 const urlencodedParser = express.urlencoded({ extended: false });
 
-// Статические файлы (js, html, css и др) находятся в папке "public"
 app.use(express.static(path.join(__dirname + "/public")));
-// Для парсинга JSON
 app.use(express.json());
 
 // Шаблоны для рендеринга 'ejs'
 app.set("view engine", "ejs");
 
-/** Объект с данными, которые будут загружены на сайт (index.html) в результате рендеринга:
- *      - siteTitle: Название страницы в браузере;
- *      - metaKeyWords: Ключевые слова (keywords) в метаданных сайта;
- *      - metaDescr: Описание сайта (description) в метаданных сайта;
- */
 const data_4_render = {
   title: [
     "ParSir – Сервис сбора данных",
@@ -82,14 +83,15 @@ const data_4_render = {
   dns_logo: "/img/Logo/DNS.svg",
   aliExpress_logo: "/img/Logo/Aliexpress.svg",
 
-  // website_Language: "English",
-
-  // Pic_Desktop: "/img/Logo/About ParSir (PC).jpeg",
-  // Pic_Laptop: "/img/About ParSir (Laptop).jpeg",
-  // Pic_Desktop: "/img/About ParSir.jpeg",
+  vklogo: "/img/Logo/Vk.svg",
+  telegramlogo: "/img/Logo/Telegram.svg",
+  youtubelogo: "/img/Logo/Youtube.svg",
+  githublogo: "/img/Logo/GitHub.svg",
 };
 
 //~~ EXPRESS. Обработка запросов ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Обработка Главной Страницы
 app.get("/", (req, res) => {
   res.render(__dirname + "/views/pages/index", {
     data_4_render,
@@ -106,7 +108,46 @@ app.get("/extra.js", (req, res) => {
   res.sendFile(__dirname + "/extra.js");
 });
 
+// app.get("/deleteDB", (req, res) => {
+//   let sql = `DROP DATABASE ${db_name}`;
+//   db.query(sql, (err, result) => {
+//     if (err) throw err;
+
+//     console.log(result);
+//     res.send(`База Данных "${db_name}" была успешно УДАЛЕНА!`);
+//   });
+// });
+
 //~~ EXPRESS. Запуск сервера ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-app.listen(port, hostname, () => {
+app.listen(port, () => {
   console.log(`\tСервер был запущен на localhost:${port}!\n`);
+
+  // Создаём БД, если её нет
+  let sql = `CREATE DATABASE IF NOT EXISTS ${db_name}`;
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    // console.log(result);
+    console.log(`\tБаза Данных "${db_name}" Подключена!`);
+  });
 });
+
+//~~ MYSQL. База Данных ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//~~ FOREST ADMIN. Панель администратора ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// require("dotenv").config();
+
+// const { createAgent } = require("@forestadmin/agent");
+// const { createSqlDataSource } = require("@forestadmin/datasource-sql");
+
+// // Create your Forest Admin agent
+// // This must be called BEFORE all other middleware on the app
+// createAgent({
+//   authSecret: process.env.FOREST_AUTH_SECRET,
+//   envSecret: process.env.FOREST_ENV_SECRET,
+//   isProduction: process.env.NODE_ENV === "production",
+// })
+//   // Create your SQL datasource
+//   .addDataSource(createSqlDataSource(process.env.DATABASE_URL))
+//   // Replace "myExpressApp" by your Express application
+//   .mountOnExpress(app)
+//   .start();

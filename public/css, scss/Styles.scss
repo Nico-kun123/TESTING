@@ -15,6 +15,7 @@ $nav-linear-gradient: linear-gradient(to right,#fdeff9,#ec38bc,#7303c0,#03001e);
 $main-padding: 5px;
 $background: #ffffff;
 $body-background-color: #333;
+
 //-[Website Styles]---------------------------------------------------------------
 * {
   -webkit-transition: 0.5s ease-in-out;
@@ -38,9 +39,17 @@ body {
 
   background: $background;
   aspect-ratio: 16/9;
+  min-height: 100%;
+  margin-bottom: 0px;
 }
-//-[Scrollbar]---------------------------------------------------------------
 
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+
+//-[Scrollbar]---------------------------------------------------------------
 ::-webkit-scrollbar {
   width: 10px;
   background-color: #f5f5f5;
@@ -51,16 +60,19 @@ body {
   background-color: #f5f5f5;
   border-radius: 10px;
 }
+
 // prettier-ignore
 ::-webkit-scrollbar-thumb { 
   border-radius: 10px;
   background-color: #fff;
   background-image: -webkit-gradient( linear, 40% 0%, 75% 84%, from(#7F53AC), to(#647DEE) );
 }
+
 // prettier-ignore
 ::-webkit-scrollbar-thumb:hover {
   background-image: -webkit-gradient( linear, 40% 0%, 75% 84%, from(#7032ad), to(#3858eb) );
 }
+
 //-[Header]---------------------------------------------------------------
 .header {
   background-color: #ffffff;
@@ -134,8 +146,9 @@ body {
 .sticky + .main {
   padding-top: 60px;
 }
-//-[About. Info]---------------------------------------------------------------
-#title_info {
+
+//-[Title + Description. FOR GENERAL USAGE]-------------------------------------------------
+#title {
   margin: auto;
   width: 100%;
   padding: $main-padding;
@@ -174,20 +187,20 @@ body {
     text-indent: 20pt;
   }
 
-  #about_descr {
+  #descr {
     margin: auto;
   }
 }
+
 //-[About. Shops]---------------------------------------------------------------
 .shops {
   margin-top: 1em;
   -webkit-box-shadow: 2px 2px 2px 1px #03001e;
   box-shadow: 2px 2px 2px 1px #03001e;
   border-width: 2px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
   padding: $main-padding;
-  padding-top: 0;
+  margin: auto;
+  margin-bottom: 50px;
 
   .cards {
     margin: 5px;
@@ -223,6 +236,7 @@ body {
     text-align: center;
   }
 }
+
 //--[ Адаптивность. Для смартфонов ]-------------------------------------------------------
 @media (min-width: 320px) {
   .header {
@@ -247,7 +261,7 @@ body {
     }
   }
 
-  #title_info {
+  #title {
     font-size: medium;
   }
 
@@ -289,7 +303,7 @@ body {
     }
   }
 
-  #title_info {
+  #title {
     font-size: x-large;
   }
 
@@ -319,7 +333,7 @@ body {
     .logo {
       img {
         aspect-ratio: 3/2;
-        width: 200px;
+        width: 300px;
         height: 50px;
       }
     }
@@ -337,7 +351,7 @@ body {
   .shops {
     .cards {
       .card {
-        max-width: 250px;
+        max-width: 200px;
       }
     }
   }

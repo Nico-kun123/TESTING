@@ -17,6 +17,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
   aspect-ratio: 16/9;
+  min-height: 100%;
+  margin-bottom: 0px;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -104,7 +112,7 @@ body {
   padding-top: 60px;
 }
 
-#title_info {
+#title {
   margin: auto;
   width: 100%;
   padding: 5px;
@@ -130,7 +138,7 @@ body {
 .main p {
   text-indent: 20pt;
 }
-.main #about_descr {
+.main #descr {
   margin: auto;
 }
 
@@ -138,10 +146,9 @@ body {
   margin-top: 1em;
   box-shadow: 2px 2px 2px 1px #03001e;
   border-width: 2px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
   padding: 5px;
-  padding-top: 0;
+  margin: auto;
+  margin-bottom: 50px;
 }
 .shops .cards {
   margin: 5px;
@@ -180,7 +187,7 @@ body {
   #navbar a {
     font-size: small;
   }
-  #title_info {
+  #title {
     font-size: medium;
   }
   .main {
@@ -207,7 +214,7 @@ body {
   #navbar a {
     font-size: small;
   }
-  #title_info {
+  #title {
     font-size: x-large;
   }
   .main p,
@@ -227,7 +234,7 @@ body {
 @media (min-width: 1400px) {
   .header .logo img {
     aspect-ratio: 3/2;
-    width: 200px;
+    width: 300px;
     height: 50px;
   }
   #navbar #translate_button {
@@ -239,6 +246,6 @@ body {
     font-size: small;
   }
   .shops .cards .card {
-    max-width: 250px;
+    max-width: 200px;
   }
 }/*# sourceMappingURL=Styles.css.map */

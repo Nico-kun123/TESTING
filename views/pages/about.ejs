@@ -4,39 +4,40 @@
     <%- include('../partials/head'); %>
   </head>
   <body>
-    <!---------- Логотип в Header ---------->
-    <div class="header">
-      <a href="/" class="logo">
-        <img src="<%=data_4_render.website_logo%>" alt="ParSir's Logo" />
-      </a>
-    </div>
-    <!---------- Sticky Navbar ---------->
-    <nav id="navbar">
-      <a href="/" lang="en">Home</a>
-      <a href="/" lang="ru">Главная</a>
-      <a href="/contacts" lang="en">Contact</a>
-      <a href="/contacts" lang="ru">Контакты</a>
-      <a class="active" href="/about" lang="en">About</a>
-      <a class="active" href="/about" lang="ru">О Сервисе</a>
+    <div class="wrapper">
+      <!---------- Логотип в Header ---------->
+      <div class="header">
+        <a href="/" class="logo">
+          <img src="<%=data_4_render.website_logo%>" alt="ParSir's Logo" />
+        </a>
+      </div>
+      <!---------- Sticky Navbar ---------->
+      <nav id="navbar">
+        <a href="/" lang="en">Home</a>
+        <a href="/" lang="ru">Главная</a>
+        <a href="/contacts" lang="en">Contact</a>
+        <a href="/contacts" lang="ru">Контакты</a>
+        <a class="active" href="/about" lang="en">About</a>
+        <a class="active" href="/about" lang="ru">О Сервисе</a>
 
-      <!-- prettier-ignore -->
-      <button id="translate_button" lang="en" onclick="change_Lang('en')">
+        <!-- prettier-ignore -->
+        <button id="translate_button" lang="en" onclick="change_Lang('en')">
         <label>Eng</label>
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" width="20px"/>
       </button>
-      <!-- prettier-ignore -->
-      <button id="translate_button" lang="ru" onclick="change_Lang('ru')">
+        <!-- prettier-ignore -->
+        <button id="translate_button" lang="ru" onclick="change_Lang('ru')">
         <label>Ru</label>
         <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Russia_%281991%E2%80%931993%29.svg" width="20px"/>
       </button>
-    </nav>
-    <!---------- Основное поле ---------->
-    <!-- prettier-ignore -->
-    <h1 id="title_info" lang="ru">Что делает данный сервис?</h1>
-    <h1 id="title_info" lang="en">What can this service do?</h1>
-    <!-- prettier-ignore -->
-    <div class="main">
-      <div id="about_descr">
+      </nav>
+      <!---------- Основное поле ---------->
+      <!-- prettier-ignore -->
+      <h1 id="title" lang="ru">Что делает данный сервис?</h1>
+      <h1 id="title" lang="en">What can this service do?</h1>
+      <!-- prettier-ignore -->
+      <div class="main">
+      <div id="descr">
         <p lang="ru"><%=data_4_render.about_ru[0]%></p>
         <p lang="en"><%=data_4_render.about_en[0]%></p>
         <p lang="ru"><%=data_4_render.about_ru[1]%></p>
@@ -54,8 +55,8 @@
         </ul>
       </div>
     </div>
-    <!-- prettier-ignore -->
-    <div class="shops">
+      <!-- prettier-ignore -->
+      <div class="shops">
       <h1 lang="ru"><%=data_4_render.about_ru[4]%></h1>
       <h1 lang="en"><%=data_4_render.about_en[4]%></h1>
       <div class="cards">
@@ -65,6 +66,7 @@
         <img class="card" src="<%=data_4_render.aliExpress_logo%>" loading="lazy"/>
         <!-- <img class="card" src="<%=data_4_render.dns_logo%>" loading="lazy"/> -->
       </div>
+    </div>
     </div>
     <!---------- JavaScript Файлы ---------->
     <!-- prettier-ignore -->
@@ -86,6 +88,6 @@
     </script>
     <script type="text/javascript" async src="/extra.js"></script>
 
-  <%- include('../partials/footer'); %>
+    <%- include('../partials/footer'); %>
   </body>
 </html>
