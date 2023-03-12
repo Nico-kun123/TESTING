@@ -21,6 +21,18 @@
     <link
       rel="icon"
       type="image/png"
+      sizes="192x192"
+      href="img/favicon/android-chrome-192x192"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="img/favicon/android-chrome-512x512"
+    />
+    <link
+      rel="icon"
+      type="image/png"
       sizes="16x16"
       href="img/favicon/favicon-16x16.png"
     />
@@ -49,11 +61,57 @@
 
     <!-- Подключаем доп. файл с функциями -->
     <!-- <script src="js/Script.js"></script> -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script></script>
   </head>
   <body>
-    <header>
-      <div class="header">
-        <div class="logo_field">
+    <!-- Поле навигации по сайту -->
+    <div class="header">
+      <a href="/" class="logo">
+        <img
+          src="<%=data4index.ParserLogo %>"
+          width="100"
+          height="41"
+          alt="ParSir's Logo"
+          style="width: max-content"
+        />
+      </a>
+      <div class="header-right">
+        <a class="active" href="/">Home</a>
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+
+    <div class="header_field">
+      <div style="display: flex; flex-grow: 2"></div>
+      <img class="header_img" src="/img/logo-color.png" />
+      <div class="header_label">
+        <h3>
+          <b style="text-shadow: 2px 2px 2px rgb(255, 255, 255)">ParSir</b>
+          – сервис сбора данных о товарах с интернет магазинов.
+        </h3>
+        <p></p>
+      </div>
+    </div>
+    <h1>Responsive Header</h1>
+    <p>Resize the browser window to see the effect.</p>
+    <p>Some content..</p>
+
+    <!-- <div class="block1" style="display: block">
+      <nav class="navigation_bar">
+        <div class="logo">
           <img
             src="<%=data4index.ParserLogo %>"
             width="100"
@@ -61,32 +119,57 @@
             alt="ParSir's Logo"
           />
         </div>
-        <ul class="navigation_bar">
-          <li><a href="/">Home</a></li>
+        <ul class="nav_items">
+          <li><a href="/"> Home</a></li>
           <li><a href="/">News</a></li>
           <li><a href="/">Contact</a></li>
           <li><a href="/">About</a></li>
         </ul>
-      </div>
-    </header>
+        <div class="empty_space"></div>
+
+        <div
+          id="profile_dropdown"
+          class="flex-shrink-0 dropdown"
+          style="margin-right: 1em"
+        >
+          <a
+            href="#"
+            class="d-block link-dark text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="./img/favicon/favicon-32x32.png"
+              alt="mdo"
+              width="32"
+              height="32"
+              class="rounded-circle"
+            />
+          </a>
+          <ul
+            class="dropdown-menu text-small shadow"
+            style="font-family: Calibri"
+          >
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Help</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+
+        
+      </nav>
+    </div>
+
+    <div class="pic">
+      <img id="img1" src="/img/logo.png" />
+    </div>
+    
+    <div class="main">
+      <h1>DDAFAF</h1>
+    </div> -->
 
     <!-- Эффект паралакса для страниц сайта -->
-    <div class="sample-header">
-      <div class="sample-header-section">
-        <h1>Scroll down to see the parallax effect</h1>
-        <h2>Background landcape scrolls with its own depth</h2>
-      </div>
-    </div>
-    <div class="sample-section-wrap">
-      <div class="sample-section">
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim.
-        </p>
-      </div>
-    </div>
   </body>
 </html>

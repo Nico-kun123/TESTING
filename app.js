@@ -37,6 +37,12 @@ const data4index = {
     "интернет-магазинов, как Леруа Мерлен, Ozon и Wildberries для их дальнейшего " +
     "анализа и/или экспорта в файл",
   ParserLogo: "/img/Logo/ParSir Logo.svg",
+  
+  Pic_Desktop: "/img/Logo/About ParSir (PC).jpeg",
+  Pic_Laptop: "/img/About ParSir (Laptop).jpeg",
+  Pic_Desktop: "/img/About ParSir.jpeg",
+  Pic_Desktop: "",
+  Pic_Desktop: "",
 };
 
 //~~ EXPRESS. Обработка запросов ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
