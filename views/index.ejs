@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!---------- Главные теги ---------->
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-type" content="text/html" />
+    <meta name="author" content="Kudryavtsev Nicolay" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!---------- Фавиконы ---------->
+    <!-- prettier-ignore -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png"/>
+    <!-- prettier-ignore -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png"/>
+    <!-- prettier-ignore -->
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-chrome-192x192"/>
+    <!-- prettier-ignore -->
+    <link rel="icon" type="image/png" sizes="512x512" href="img/favicon/android-chrome-512x512"/>
+    <!-- prettier-ignore -->
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png"/>
+    <!-- prettier-ignore -->
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <!---------- Мета-данные сайта (для поисковиков) ---------->
+    <title lang="en"><%=data_4_render.title_en%></title>
+    <meta name="description" content="<%=data_4_render.descr_ru%>" lang="ru" />
+    <meta name="description" content="<%=data_4_render.descr_en%>" lang="en" />
+    <meta name="keywords" content="<%=data_4_render.metaKeyWords%>" />
+
+    <!---------- Необязательные ---------->
+    <meta name="rating" content="general" />
+    <meta name="copyright" content="Copyright 2023" />
+
+    <!---------- Для мобильных устройств ---------->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="HandheldFriendly" content="true" />
+
+    <!---------- http-equiv ---------->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!---------- Подключаем CSS ---------->
+    <link href="css, scss/Styles.css" rel="stylesheet" type="text/css" />
+
+    <!---------- Подключаем доп. файлы ---------->
+    <!-- prettier-ignore -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/> -->
+  </head>
+  <body>
+    <!---------- Логотип в Header ---------->
+    <div class="header">
+      <a href="/" class="logo">
+        <img src="<%=data_4_render.website_Logo%>" alt="ParSir's Logo" />
+      </a>
+    </div>
+    <!---------- Sticky Navbar ---------->
+    <div id="navbar">
+      <a class="active" href="/" lang="en">Home</a>
+      <a class="active" href="/" lang="ru">Главная</a>
+      <a href="/contact" lang="en">Contact</a>
+      <a href="/contact" lang="ru">Контакты</a>
+      <a href="/about" lang="en">About</a>
+      <a href="/about" lang="ru">О Сервисе</a>
+
+      <!-- prettier-ignore -->
+      <button id="translate_button" lang="en" onclick="change_Lang('en')">
+        <label>Eng</label>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" width="20px"/>
+      </button>
+      <!-- prettier-ignore -->
+      <button id="translate_button" lang="ru" onclick="change_Lang('ru')">
+        <label>Ru</label>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Russia_%281991%E2%80%931993%29.svg" width="20px"/>
+      </button>
+    </div>
+    <!---------- Основное поле ---------->
+    <!-- prettier-ignore -->
+    <h2 id="title_info" lang="ru">ParSir – сервис сбора данных для систем электронной коммерции</h2>
+    <!-- prettier-ignore -->
+    <h2 id="title_info" lang="en">ParSir is a data collection service for e-commerce systems</h2>
+    <div class="main">
+      <p>Main Page</p>
+    </div>
+    <!---------- JavaScript Файлы ---------->
+    <!-- prettier-ignore -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("[lang]").hide();
+      $('[lang="ru"]').show();
+
+      function change_Lang(language = "en") {
+        if (language == "en") {
+          $("[lang]").hide();
+          $('[lang="ru"]').show();
+        } else {
+          $("[lang]").hide();
+          $('[lang="en"]').show();
+        }
+        language == "ru" ? (language = "en") : (language = "ru");
+      }
+    </script>
+    <script type="text/javascript" src="/extra.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
+  </body>
+</html>

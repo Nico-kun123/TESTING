@@ -1,234 +1,324 @@
-/* Sass Variables */
-$html-background-color: #333;
-$html-background-webkit-linear-gradient: -webkit-linear-gradient(
-  to right,
-  #e2e2e2,
-  #c9d6ff
-);
-$html-background-linear-gradient: linear-gradient(to right, #e2e2e2, #c9d6ff);
-$nav-webkit-linear-gradient: -webkit-linear-gradient(
-  to right,
-  #fdeff9,
-  #ec38bc,
-  #7303c0,
-  #03001e
-);
-$nav-linear-gradient: linear-gradient(
-  to right,
-  #fdeff9,
-  #ec38bc,
-  #7303c0,
-  #03001e
-);
-
+//-[Sass Переменные]---------------------------------------------------------------
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 $font-family: "Open Sans", sans-serif;
+$font-weight-nav: bold;
 
-$scroll-factor: 0.5;
+// prettier-ignore
+$html-background-webkit-linear-gradient: -webkit-linear-gradient(to right,#e2e2e2,rgb(239, 243, 253));
+// prettier-ignore
+$html-background-linear-gradient: linear-gradient( to right, #e2e2e2, rgb(239, 243, 253) );
+// prettier-ignore
+$nav-webkit-linear-gradient: -webkit-linear-gradient(to right,#fdeff9,#ec38bc,#7303c0,#03001e);
+// prettier-ignore
+$nav-linear-gradient: linear-gradient(to right,#fdeff9,#ec38bc,#7303c0,#03001e);
+
+$main-padding: 5px;
 $background: #ffffff;
-$header-height: 50px;
-// $parallax-image: "https://pbs.twimg.com/media/B2XTRwtCAAEnqlP.jpg:large";
-//----------------------------------------------------------------
-/* Общие стили сайта */
-html,
+$body-background-color: #333;
+//-[Website Styles]---------------------------------------------------------------
+* {
+  transition: 0.5s ease-in-out;
+  font-family: $font-family;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: $html-background-color;
+  background-color: $body-background-color;
+  height: 100%;
   padding: 0;
   margin: 0;
-  height: 100%;
-  background: $background;
+  // background: $background;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased !important;
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
 
-  // background-color: $background;
-  // background: $background;
-  // background: $html-background-webkit-linear-gradient; /* Chrome 10-25, Safari 5.1-6 */
-  // background: $html-background-linear-gradient;
+  background: $background;
+  aspect-ratio: 16/9;
+}
+//-[Scrollbar]---------------------------------------------------------------
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-family: $font-family;
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
-//----------------------------------------------------------------
-@-webkit-keyframes webkit_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+// prettier-ignore
+::-webkit-scrollbar-thumb { 
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-gradient( linear, 40% 0%, 75% 84%, from(#7F53AC), to(#647DEE) );
 }
-@-moz-keyframes moz_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+// prettier-ignore
+::-webkit-scrollbar-thumb:hover {
+  background-image: -webkit-gradient( linear, 40% 0%, 75% 84%, from(#7032ad), to(#3858eb) );
 }
-@-o-keyframes opera_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-//----------------------------------------------------------------
-/* Navigation Field */
-/* Style the header with a grey background and some padding */
+//-[Header]---------------------------------------------------------------
 .header {
-  overflow: hidden;
   background-color: #ffffff;
-  // padding: 8px;
-  // margin: auto;
-  box-shadow: 2px 2px 2px rgb(78, 78, 78);
-  // display: flex;
-  // align-items: center;
-  // flex-wrap: wrap;
-  // align-self: center;
-}
-
-/* Style the header links */
-.header a {
-  float: left;
-  display: flex;
-  color: black;
+  margin: auto;
   text-align: center;
-  padding: 8px;
-  text-decoration: none;
-  font-size: 18px;
-  // line-height: 25px;
-  border-radius: 4px;
-  // justify-content: center;
-  // align-items: center;
-  // align-self: center;
+  width: 100%;
+
+  .logo {
+    img {
+      aspect-ratio: 3/2;
+      width: 250px;
+      height: 100px;
+    }
+  }
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
-  // font-weight: bold;
-}
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
 
-.header a.logo:hover {
-  background-color: rgb(255, 255, 255);
-}
-
-/* Change the background color on mouse-over */
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Style the active/current link*/
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
-/* Float the link section to the right */
-.header-right {
-  float: right;
-}
-
-.header_field {
-  background: linear-gradient(270deg, #7f7fd5, #86a8e7, #91eae4);
-  background-size: 600% 600%;
-
-  -webkit-animation: webkit_grad 30s ease infinite;
-  -moz-animation: moz_grad 30s ease infinite;
-  -o-animation: opera_grad 30s ease infinite;
-  animation: grad 30s ease infinite;
-}
-
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
+  a {
+    float: left;
     display: block;
-    text-align: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 17px;
   }
-  .header-right {
-    float: none;
-  }
-}
 
-@media screen and (max-width: 881px) {
-  .header_img {
-    width: 100%;
+  a:hover {
+    background-color: rgb(60, 216, 255);
+    color: black;
+    font-weight: $font-weight-nav;
   }
-  .header_field {
-    
-    h3 {
-      font-size: large;
-      display: flex;
-      justify-content: center;
+
+  a.active {
+    background-color: rgb(32, 72, 250);
+    color: white;
+    font-weight: $font-weight-nav;
+  }
+
+  #translate_button {
+    margin: $main-padding $main-padding $main-padding $main-padding;
+    width: auto;
+    padding: 10px 10px;
+    float: right;
+    border-radius: 20px;
+    text-align: center;
+
+    label,
+    img {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: x-small;
     }
   }
 
-  .header_label {
-    line-height: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 10px;
+  #translate_button:hover {
+    cursor: pointer;
   }
 }
 
-@media screen and (width >= 881px) {
-  .header_field {
-    display: flex;
-    width: 100%;
-    
-    justify-content: center;
-    align-items: center;
-    align-self: baseline;
-    align-content: center;
-    padding: 10px;
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .main {
+  padding-top: 60px;
+}
+//-[About. Info]---------------------------------------------------------------
+#title_info {
+  margin: auto;
+  width: 100%;
+  padding: $main-padding;
+  text-align: center;
+  background: $html-background-webkit-linear-gradient; /* Chrome 10-25, Safari 5.1-6 */
+  background: $html-background-linear-gradient;
+  border-bottom-style: double;
+  border-bottom-width: 5px;
+}
+
+.main {
+  margin: auto;
+  width: 100%;
+  background: $html-background-webkit-linear-gradient; /* Chrome 10-25, Safari 5.1-6 */
+  background: $html-background-linear-gradient;
+
+  border-width: 2px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-style: dashed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  p {
+    text-indent: 20pt;
   }
 
-  .header_label {
-    float: left;
-    display: flex;
+  #about_descr {
+    margin: auto;
+  }
+}
+//-[About. Shops]---------------------------------------------------------------
+.shops {
+  margin-top: 1em;
+  box-shadow: 2px 2px 2px 1px #03001e;
+  border-width: 2px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: $main-padding;
+  padding-top: 0;
+
+  .cards {
+    margin: 5px;
+    padding: auto;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+
+    .card {
+      width: 50px;
+      flex-basis: 33.33333%;
+      padding: $main-padding;
+      align-self: center;
+      aspect-ratio: 3/2;
+    }
   }
 
-  .header_img {
-    width: 50%;
-    height: 100%;
-    flex-shrink: 0;
+  h1 {
+    text-align: center;
+  }
+}
+//--[ Адаптивность. Для смартфонов ]-------------------------------------------------------
+@media (min-width: 320px) {
+  .header {
+    .logo {
+      img {
+        aspect-ratio: 3/2;
+        padding: $main-padding;
+        width: 200px;
+        height: 40px;
+      }
+    }
+  }
+
+  #navbar {
+    #translate_button {
+      margin: 8px 5px 5px 5px;
+      padding: $main-padding $main-padding;
+      font-size: small;
+    }
+    a {
+      font-size: small;
+    }
+  }
+
+  #title_info {
+    font-size: medium;
+  }
+
+  .main {
+    padding: $main-padding;
+  }
+
+  .shops {
+    h1 {
+      font-size: medium;
+    }
+    .cards {
+      .card {
+        max-width: 120px;
+      }
+    }
+  }
+}
+//--[ Адаптивность. Для планшетов ]-------------------------------------------------------
+@media (min-width: 990px) {
+  .header {
+    .logo {
+      img {
+        aspect-ratio: 3/2;
+        width: 200px;
+        height: 50px;
+      }
+    }
+  }
+
+  #navbar {
+    #translate_button {
+      margin: 8px 5px 5px 5px;
+      padding: $main-padding $main-padding;
+      font-size: small;
+    }
+    a {
+      font-size: small;
+    }
+  }
+
+  #title_info {
+    font-size: x-large;
+  }
+
+  .main {
+    p,
+    li {
+      font-size: large;
+    }
+  }
+  p {
+    font-size: large;
+  }
+  .shops {
+    h1 {
+      font-size: x-large;
+    }
+    .cards {
+      .card {
+        max-width: 150px;
+      }
+    }
+  }
+}
+//--[ Адаптивность. Для ноутбуков и ПК ]--------------------------------------------------
+
+@media (min-width: 1400px) {
+  .header {
+    .logo {
+      img {
+        aspect-ratio: 3/2;
+        width: 200px;
+        height: 50px;
+      }
+    }
+  }
+  #navbar {
+    #translate_button {
+      margin: 8px 5px 5px 5px;
+      padding: $main-padding $main-padding;
+      font-size: small;
+    }
+    a {
+      font-size: small;
+    }
+  }
+  .shops {
+    .cards {
+      .card {
+        max-width: 250px;
+      }
+    }
   }
 }

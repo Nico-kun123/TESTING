@@ -1,162 +1,244 @@
-@charset "UTF-8";
-/* Sass Variables */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-/* Общие стили сайта */
-html,
+* {
+  transition: 0.5s ease-in-out;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #333;
+  height: 100%;
   padding: 0;
   margin: 0;
-  height: 100%;
-  background: #ffffff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased !important;
   text-rendering: optimizelegibility;
   -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  aspect-ratio: 16/9;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-family: "Open Sans", sans-serif;
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
 }
 
-@-webkit-keyframes webkit_grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
-@-webkit-keyframes grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#7F53AC), to(#647DEE));
 }
-@keyframes grad {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#7032ad), to(#3858eb));
 }
-/* Navigation Field */
-/* Style the header with a grey background and some padding */
+
 .header {
-  overflow: hidden;
   background-color: #ffffff;
-  box-shadow: 2px 2px 2px rgb(78, 78, 78);
-}
-
-/* Style the header links */
-.header a {
-  float: left;
-  display: flex;
-  color: black;
+  margin: auto;
   text-align: center;
-  padding: 8px;
+  width: 100%;
+}
+.header .logo img {
+  aspect-ratio: 3/2;
+  width: 250px;
+  height: 100px;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+}
+#navbar a {
+  float: left;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 15px;
   text-decoration: none;
-  font-size: 18px;
-  border-radius: 4px;
+  font-size: 17px;
 }
-
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo:hover {
-  background-color: rgb(255, 255, 255);
-}
-
-/* Change the background color on mouse-over */
-.header a:hover {
-  background-color: #ddd;
+#navbar a:hover {
+  background-color: rgb(60, 216, 255);
   color: black;
+  font-weight: bold;
 }
-
-/* Style the active/current link*/
-.header a.active {
-  background-color: dodgerblue;
+#navbar a.active {
+  background-color: rgb(32, 72, 250);
   color: white;
+  font-weight: bold;
 }
-
-/* Float the link section to the right */
-.header-right {
+#navbar #translate_button {
+  margin: 5px 5px 5px 5px;
+  width: auto;
+  padding: 10px 10px;
   float: right;
+  border-radius: 20px;
+  text-align: center;
+}
+#navbar #translate_button label,
+#navbar #translate_button img {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: x-small;
+}
+#navbar #translate_button:hover {
+  cursor: pointer;
 }
 
-.header_field {
-  background: linear-gradient(270deg, #7f7fd5, #86a8e7, #91eae4);
-  background-size: 600% 600%;
-  -webkit-animation: webkit_grad 30s ease infinite;
-  animation: grad 30s ease infinite;
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
+.sticky + .main {
+  padding-top: 60px;
+}
+
+#title_info {
+  margin: auto;
+  width: 100%;
+  padding: 5px;
+  text-align: center; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #e2e2e2, rgb(239, 243, 253));
+  border-bottom-style: double;
+  border-bottom-width: 5px;
+}
+
+.main {
+  margin: auto;
+  width: 100%; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #e2e2e2, rgb(239, 243, 253));
+  border-width: 2px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-style: dashed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main p {
+  text-indent: 20pt;
+}
+.main #about_descr {
+  margin: auto;
+}
+
+.shops {
+  margin-top: 1em;
+  box-shadow: 2px 2px 2px 1px #03001e;
+  border-width: 2px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 5px;
+  padding-top: 0;
+}
+.shops .cards {
+  margin: 5px;
+  padding: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+}
+.shops .cards .card {
+  width: 50px;
+  flex-basis: 33.33333%;
+  padding: 5px;
+  align-self: center;
+  aspect-ratio: 3/2;
+}
+.shops h1 {
+  text-align: center;
+}
+
+@media (min-width: 320px) {
+  .header .logo img {
+    aspect-ratio: 3/2;
+    padding: 5px;
+    width: 200px;
+    height: 40px;
   }
-  .header-right {
-    float: none;
+  #navbar #translate_button {
+    margin: 8px 5px 5px 5px;
+    padding: 5px 5px;
+    font-size: small;
+  }
+  #navbar a {
+    font-size: small;
+  }
+  #title_info {
+    font-size: medium;
+  }
+  .main {
+    padding: 5px;
+  }
+  .shops h1 {
+    font-size: medium;
+  }
+  .shops .cards .card {
+    max-width: 120px;
   }
 }
-@media screen and (max-width: 881px) {
-  .header_img {
-    width: 100%;
+@media (min-width: 990px) {
+  .header .logo img {
+    aspect-ratio: 3/2;
+    width: 200px;
+    height: 50px;
   }
-  .header_field h3 {
+  #navbar #translate_button {
+    margin: 8px 5px 5px 5px;
+    padding: 5px 5px;
+    font-size: small;
+  }
+  #navbar a {
+    font-size: small;
+  }
+  #title_info {
+    font-size: x-large;
+  }
+  .main p,
+.main li {
     font-size: large;
-    display: flex;
-    justify-content: center;
   }
-  .header_label {
-    line-height: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 10px;
+  p {
+    font-size: large;
+  }
+  .shops h1 {
+    font-size: x-large;
+  }
+  .shops .cards .card {
+    max-width: 150px;
   }
 }
-@media screen and (width >= 881px) {
-  .header_field {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    align-self: baseline;
-    align-content: center;
-    padding: 10px;
+@media (min-width: 1400px) {
+  .header .logo img {
+    aspect-ratio: 3/2;
+    width: 200px;
+    height: 50px;
   }
-  .header_label {
-    float: left;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 10px;
+  #navbar #translate_button {
+    margin: 8px 5px 5px 5px;
+    padding: 5px 5px;
+    font-size: small;
   }
-  .header_img {
-    width: 50%;
-    height: 100%;
-    flex-shrink: 0;
+  #navbar a {
+    font-size: small;
+  }
+  .shops .cards .card {
+    max-width: 250px;
   }
 }/*# sourceMappingURL=Styles.css.map */

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <!---------- Главные теги ---------->
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-type" content="text/html" />
+    <meta name="author" content="Kudryavtsev Nicolay" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="Cache-control" content="private"> -->
+
+    <!---------- Фавиконы ---------->
+    <!-- prettier-ignore -->
+    <link rel="icon" type="image/png" media="all" sizes="32x32" href="img/favicon/favicon-32x32.png"/>
+    <!-- <link rel="manifest" href="/favicon/site.webmanifest" /> -->
+
+    <!---------- Мета-данные сайта (для поисковиков) ---------->
+    <title lang="en"><%=data_4_render.title[1]%></title>
+    <meta name="description" content="<%=data_4_render.descr[0]%>" lang="ru" />
+    <meta name="description" content="<%=data_4_render.descr[1]%>" lang="en" />
+    <meta name="keywords" content="<%=data_4_render.metaKeyWords%>" />
+
+    <!---------- Необязательные ---------->
+    <meta name="rating" content="general" />
+    <meta name="copyright" content="Copyright 2023" />
+
+    <!---------- Для мобильных устройств ---------->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="HandheldFriendly" content="true" />
+
+    <!---------- http-equiv ---------->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!---------- Подключаем CSS ---------->
+    <link type="text/css" href="css, scss/Styles.css" rel="stylesheet" />
+
+    <!---------- Подключаем доп. файлы ---------->
+  </head>
+  <body>
+    <!---------- Логотип в Header ---------->
+    <div class="header">
+      <a href="/" class="logo">
+        <img src="<%=data_4_render.website_logo%>" alt="ParSir's Logo" />
+      </a>
+    </div>
+    <!---------- Sticky Navbar ---------->
+    <nav id="navbar">
+      <a href="/" lang="en">Home</a>
+      <a href="/" lang="ru">Главная</a>
+      <a href="/contact" lang="en">Contact</a>
+      <a href="/contact" lang="ru">Контакты</a>
+      <a class="active" href="/about" lang="en">About</a>
+      <a class="active" href="/about" lang="ru">О Сервисе</a>
+
+      <!-- prettier-ignore -->
+      <button id="translate_button" lang="en" onclick="change_Lang('en')">
+        <label>Eng</label>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg" width="20px"/>
+      </button>
+      <!-- prettier-ignore -->
+      <button id="translate_button" lang="ru" onclick="change_Lang('ru')">
+        <label>Ru</label>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Russia_%281991%E2%80%931993%29.svg" width="20px"/>
+      </button>
+    </nav>
+    <!---------- Основное поле ---------->
+    <!-- prettier-ignore -->
+    <h1 id="title_info" lang="ru">Что делает данный сервис?</h1>
+    <h1 id="title_info" lang="en">What can this service do?</h1>
+    <!-- prettier-ignore -->
+    <div class="main">
+      <div id="about_descr">
+        <p lang="ru"><%=data_4_render.about_ru[0]%></p>
+        <p lang="en"><%=data_4_render.about_en[0]%></p>
+        <p lang="ru"><%=data_4_render.about_ru[1]%></p>
+        <p lang="en"><%=data_4_render.about_en[1]%></p>
+        <p lang="ru"><%=data_4_render.about_ru[2]%></p>
+        <p lang="en"><%=data_4_render.about_en[2]%></p>
+
+        <ul lang="ru"> <% for (let i = 0; i <= 2; i++ ) { %>
+          <li lang="ru"><%=data_4_render.about_ru[3][i]%></li>
+          <% } %>
+        </ul>
+        <ul lang="en"> <% for (let i = 0; i <= 2; i++ ) { %>
+          <li lang="en"><%=data_4_render.about_en[3][i]%></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+    <!-- prettier-ignore -->
+    <div class="shops">
+      <h1 lang="ru"><%=data_4_render.about_ru[4]%></h1>
+      <h1 lang="en"><%=data_4_render.about_en[4]%></h1>
+      <div class="cards">
+        <img class="card" src="<%=data_4_render.ozon_logo%>" loading="lazy"/>
+        <img class="card" src="<%=data_4_render.wildberries_logo%>" loading="lazy"/>
+        <img class="card" src="<%=data_4_render.leroy_merlin_logo%>" loading="lazy"/>
+        <img class="card" src="<%=data_4_render.aliExpress_logo%>" loading="lazy"/>
+        <!-- <img class="card" src="<%=data_4_render.dns_logo%>" loading="lazy"/> -->
+      </div>
+    </div>
+    <!---------- JavaScript Файлы ---------->
+    <!-- prettier-ignore -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $("[lang]").hide();
+      $('[lang="ru"]').show();
+
+      function change_Lang(language = "en") {
+        if (language == "en") {
+          $("[lang]").hide();
+          $('[lang="ru"]').show();
+        } else {
+          $("[lang]").hide();
+          $('[lang="en"]').show();
+        }
+        language == "ru" ? (language = "en") : (language = "ru");
+      }
+    </script>
+    <script type="text/javascript" async src="/extra.js"></script>
+  </body>
+</html>
