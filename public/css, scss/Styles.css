@@ -1,0 +1,44 @@
+@charset "UTF-8";
+html {
+  background-color: #ffffff;
+}
+
+/* ~~~~~ Анимированный Фон ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~ Шапка сайта ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.header {
+  background-color: rgb(252, 154, 154);
+  border-radius: 15px;
+  border: solid 1px #06d85f;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-self: flex-start;
+  align-items: flex-start baseline;
+  padding: 5px;
+  margin: auto;
+  width: auto;
+  z-index: 1;
+}
+.header .logo_field {
+  /* Сам логотип */
+  background-color: white;
+  /* position: sticky; */
+  max-width: 100%;
+  width: 100;
+  margin: 5px;
+  display: flex;
+  border-radius: 15px;
+  padding: 3px;
+}
+.header .navigation_bar {
+  flex-grow: 1;
+}
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.header li {
+  display: inline;
+}/*# sourceMappingURL=Styles.css.map */
