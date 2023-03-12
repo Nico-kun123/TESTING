@@ -1,25 +1,37 @@
 "use strict"; // Строгий режим
 
-//~~ EXPRESS. Создание сервера ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
-const express = require("express"); // Используем express для создания сервер
-const port = 5500;                  // Номера порта
-const app = express();              // Создаем объект приложения
-  
-app.use(express.json());
-  
-// Статические файлы, которые будут считываться (js, html, css) находятся в папке "public"
-app.use(express.static(__dirname + '/public'));
-  
-// Загрузка файла "ParsedData.json" на сайт при нажатии на кнопку "Показать"
-app.get('/ParsedData.json', function(req, res) {
-    fs.readFile("public/json/ParsedData.json", urlencodedParser, function (err, file) {
-        var data = JSON.parse(file);
-        res.json(data);
-    });
-});
+//~~ EXPRESS. Настройка и создание сервера ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Запускаем наше приложение на порту, равному значению переменной "port"
+// Импорт библиотек и фреймворков
+const express = require("express");
+const path = require('path');
+
+// Выбор номера порта у сервера
+const port = process.env.PORT || 5500;
+
+// Создаём сервер
+const app = express();
+
+// Статические файлы (js, html, css и др) находятся в папке "public"
+app.use(express.static(__dirname + '/public'));
+// Для парсинга JSON
+app.use(express.json());
+
+// Шаблоны для рендеринга 'ejs'
+app.set('view engine', 'ejs');
+
+const favicons = {
+    mfest: 'rel="manifest" href="favicon/site.webmanifest"',
+}
+
+//~~ EXPRESS. Обработка запросов ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+app.get('/', (req, res) => {
+    res.render(__dirname + '/views/pages/index', {
+        // favicons
+    });
+})
+
+//~~ EXPRESS. Запуск сервера ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 app.listen(port, () => {
-    console.log(`\tСервер был запущен на порту: ${port}!\n`);
+    console.log(`\tСервер был запущен на localhost:${port}!\n`);
 });
