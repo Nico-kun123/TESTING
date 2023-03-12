@@ -18,7 +18,7 @@ const app = express();
 const urlencodedParser = express.urlencoded({ extended: false });
 
 // Статические файлы (js, html, css и др) находятся в папке "public"
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.join(__dirname + "/public")));
 // Для парсинга JSON
 app.use(express.json());
 
@@ -82,7 +82,7 @@ const data_4_render = {
   dns_logo: "/img/Logo/DNS.svg",
   aliExpress_logo: "/img/Logo/Aliexpress.svg",
 
-  website_Language: "English",
+  // website_Language: "English",
 
   // Pic_Desktop: "/img/Logo/About ParSir (PC).jpeg",
   // Pic_Laptop: "/img/About ParSir (Laptop).jpeg",
@@ -91,13 +91,13 @@ const data_4_render = {
 
 //~~ EXPRESS. Обработка запросов ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 app.get("/", (req, res) => {
-  res.render(__dirname + "/views/index", {
+  res.render(__dirname + "/views/pages/index", {
     data_4_render,
   });
 });
 
 app.get("/about", (req, res) => {
-  res.render(__dirname + "/views/about", {
+  res.render(__dirname + "/views/pages/about", {
     data_4_render,
   });
 });

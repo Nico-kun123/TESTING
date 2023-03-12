@@ -17,8 +17,11 @@ $background: #ffffff;
 $body-background-color: #333;
 //-[Website Styles]---------------------------------------------------------------
 * {
+  -webkit-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   font-family: $font-family;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -27,7 +30,6 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  // background: $background;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased !important;
@@ -155,9 +157,17 @@ body {
   border-bottom-right-radius: 20px;
   border-bottom-style: dashed;
 
+  display: -webkit-box;
+  display: -ms-flexbox;
+
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 
   p {
@@ -171,6 +181,7 @@ body {
 //-[About. Shops]---------------------------------------------------------------
 .shops {
   margin-top: 1em;
+  -webkit-box-shadow: 2px 2px 2px 1px #03001e;
   box-shadow: 2px 2px 2px 1px #03001e;
   border-width: 2px;
   border-bottom-left-radius: 20px;
@@ -182,17 +193,27 @@ body {
     margin: 5px;
     padding: auto;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
     align-items: baseline;
     margin-left: -0.25rem;
     margin-right: -0.25rem;
 
     .card {
       width: 50px;
+      -ms-flex-preferred-size: 33.33333%;
       flex-basis: 33.33333%;
       padding: $main-padding;
+      -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
       align-self: center;
       aspect-ratio: 3/2;
     }
@@ -293,7 +314,6 @@ body {
   }
 }
 //--[ Адаптивность. Для ноутбуков и ПК ]--------------------------------------------------
-
 @media (min-width: 1400px) {
   .header {
     .logo {
